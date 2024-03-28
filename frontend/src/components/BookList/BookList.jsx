@@ -4,10 +4,12 @@ function BookList() {
   const books = useSelector((state) =>  state.books);
 
   return (
-    <div>{books?.length && 
-    <ul>
-      {books.map((item, idx) => <li key={idx}>{`${item.author}-${item.bookTitle}`}</li>)}
-      </ul>
+    <div>{books?.length ? 
+    (<ul>
+      {books.map((item, idx) => <li key={item.id}>{`${item.author}-${item.bookTitle}`}</li>)}
+      </ul>) : (
+        <p>no items</p>
+      )
       }</div>
   )
 }
