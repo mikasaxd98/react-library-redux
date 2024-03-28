@@ -7,3 +7,10 @@ export const addBook = (newBook) => {
         payload: newBook
     }
 }
+
+export const removeBook = (id) => {
+    return {
+        type: actionTypes.REMOVE_BOOK,
+        payload: id
+    }
+}

@@ -16,7 +16,7 @@ label input {
     outline: none;
 }
 
-button {
+.btn-add {
     width: 100%;
     cursor: pointer;
 }

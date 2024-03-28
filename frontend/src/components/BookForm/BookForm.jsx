@@ -27,7 +27,7 @@ console.log(formData);
                 Book author
                 <input type="text" value={formData.author} onChange={(e) => setFormData({...formData, author: e.target.value, id: uuidv4() })} placeholder="author"/>
             </label>
-            <button type='submit'>Add Book</button>
+            <button type='submit' className='btn-add'>Add Book</button>
         </form>
   )
 }
