@@ -1,0 +1,22 @@
+.bookForm {
+    border: 1px solid grey;
+    border-radius: 5px;
+    width: 400px;
+    display: block;
+}
+
+label {
+    display: block;
+    margin: 20px;
+    color: white;
+}
+
+label input {
+    display: block;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    cursor: pointer;
+}
