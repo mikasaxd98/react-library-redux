@@ -1,0 +1,9 @@
+.filter-container {
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 4px;
+}
+
+.filter-container input {
+    outline: none;
+}
