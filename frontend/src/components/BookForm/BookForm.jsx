@@ -11,7 +11,6 @@ function BookForm() {
 
     const submitForm = (event) => {
         event.preventDefault();
-console.log(formData);
         if(formData.bookTitle && formData.author) {
             dispatch(addBook(formData));
             setFormData({bookTitle: '',author: '', id: '', isFavorite: false})
