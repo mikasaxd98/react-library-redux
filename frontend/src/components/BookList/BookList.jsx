@@ -2,7 +2,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeBook } from "../../redux/books/actionCreators";
 
 function BookList() {
-  debugger
   const books = useSelector((state) =>  state.books);
   const dispatch = useDispatch();
 
