@@ -14,7 +14,7 @@ function BookForm() {
 console.log(formData);
         if(formData.bookTitle && formData.author) {
             dispatch(addBook(formData));
-            setFormData({bookTitle: '',author: '', id: ''})
+            setFormData({bookTitle: '',author: '', id: '', isFavorite: false})
         }
     }
 
@@ -23,21 +23,22 @@ console.log(formData);
         let randomBook = booksData[randomNumber];
         randomBook = {
             ...randomBook,
+            isFavorite: false,
             id: uuidv4()
         }
         dispatch(addBook(randomBook));
-        setFormData({bookTitle: '',author: '', id: ''})
+        setFormData({bookTitle: '',author: '', id: '', isFavorite: false})
     }
     
   return (
         <form className="bookForm" onSubmit={submitForm}>
             <label>
                 Book title
-                <input type="text" value={formData.bookTitle} onChange={(e) => setFormData({...formData, bookTitle: e.target.value, id: uuidv4()})}  placeholder="book title"/>
+                <input type="text" value={formData.bookTitle} onChange={(e) => setFormData({...formData, bookTitle: e.target.value, id: uuidv4(), isFavorite: false})}  placeholder="book title"/>
             </label>
             <label>
                 Book author
-                <input type="text" value={formData.author} onChange={(e) => setFormData({...formData, author: e.target.value, id: uuidv4() })} placeholder="author"/>
+                <input type="text" value={formData.author} onChange={(e) => setFormData({...formData, author: e.target.value, id: uuidv4(), isFavorite: false })} placeholder="author"/>
             </label>
             <button type='submit' className='btn-add'>Add Book</button>
             <button type='button' className='btn-add'onClick={handleAddRandomBook} >Add Book Random</button>

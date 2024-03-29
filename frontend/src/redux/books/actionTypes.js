@@ -1,2 +1,4 @@
 export const ADD_BOOK = 'ADD_BOOK';
 export const REMOVE_BOOK = 'REMOVE_BOOK'
+export const ADD_FAVORITE_BOOK = 'ADD_FAVORITE_BOOK'
+export const DELETE_FAVORITE_BOOK = 'DELETE_FAVORITE_BOOK'

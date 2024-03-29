@@ -14,3 +14,18 @@ export const removeBook = (id) => {
         payload: id
     }
 }
+
+export const addFavoriteBook = (id) => {
+    return {
+        type: actionTypes.ADD_FAVORITE_BOOK,
+        payload: id
+    }
+}
+
+
+export const deleteFavoriteBook = (id) => {
+    return {
+        type: actionTypes.DELETE_FAVORITE_BOOK,
+        payload: id
+    }
+}
