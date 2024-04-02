@@ -1,7 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios'
 
 const initialState = [];
+
+export const fetchBook = createAsyncThunk(
+    'books/fetchBook',
+    async () => {
+        const res = await axios.get('http://localhost:4000/random-book');
+        console.log(res)
+        return res.data;
+    }
+)
 
 const booksSlice = createSlice({
   name: 'books',  
@@ -19,6 +28,20 @@ const booksSlice = createSlice({
     deleteFavoriteBook: (state, action) => {
         return state.map((item) => item.id === action.payload ? {...item, isFavorite: false} : item)
     } 
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchBook.fulfilled, (state, action) => {
+        if(action?.payload) {
+            const data = {
+                ...action.payload,
+                isFavorite: false
+               }
+               state.push(data);
+        }
+    });
+    builder.addCase(fetchBook.rejected, (state, action) => {
+
+    })
   }
 })
 
