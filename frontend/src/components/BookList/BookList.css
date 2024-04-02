@@ -2,3 +2,7 @@
     color: yellow;
     cursor: pointer;
 }
+
+.highlight {
+    background-color: #ff0;
+}

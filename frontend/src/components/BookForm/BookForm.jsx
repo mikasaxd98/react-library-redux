@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import {useDispatch} from 'react-redux'
 import './BookForm.css'
-import { addBook } from '../../redux/books/actionCreators';
 import { v4 as uuidv4 } from 'uuid';
 import booksData from '../../data/books.json';
+import { addBook } from '../../redux/slices/booksSlice';
 
 function BookForm() {
    const [formData, setFormData] = useState({bookTitle: '',author: '', id: '' });
@@ -12,7 +12,7 @@ function BookForm() {
     const submitForm = (event) => {
         event.preventDefault();
         if(formData.bookTitle && formData.author) {
-            dispatch(addBook(formData));
+            dispatch(addBook(formData))
             setFormData({bookTitle: '',author: '', id: '', isFavorite: false})
         }
     }
