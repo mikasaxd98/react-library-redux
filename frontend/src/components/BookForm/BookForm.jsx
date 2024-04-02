@@ -8,6 +8,7 @@ import { setError } from '../../redux/slices/errorSlice';
 
 function BookForm() {
    const [formData, setFormData] = useState({bookTitle: '',author: '', id: '' });
+   const [isLoading, setIsLoading] = useState(false)
    const dispatch = useDispatch()
 
     const submitForm = (event) => {
@@ -21,8 +22,14 @@ function BookForm() {
         }
     }
 
-  const handleAddRandomBookFromApi = () => {
-   dispatch(fetchBook('http://localhost:42000/random-book'))
+  const handleAddRandomBookFromApi = async () => {
+    setIsLoading(true)
+    try {
+        await dispatch(fetchBook('http://localhost:4000/random-book-delayed')) 
+    } finally {
+        setIsLoading(false)
+    }
+
   }
 
     const handleAddRandomBook = () => {
@@ -49,7 +56,7 @@ function BookForm() {
             </label>
             <button type='submit' className='btn-add'>Add Book</button>
             <button type='button' className='btn-add'onClick={handleAddRandomBook} >Add Book Random</button>
-            <button type='button' className='btn-add'onClick={handleAddRandomBookFromApi} >Add Book From API</button>
+            <button type='button' className='btn-add'onClick={handleAddRandomBookFromApi} disabled={isLoading} >Add Book From API</button>
         </form>
   )
 }
